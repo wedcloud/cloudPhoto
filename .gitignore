@@ -1,2 +1,4 @@
 /*.html
 /.user.ini
+/.vscode/**
+/node_modules/**
