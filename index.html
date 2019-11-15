@@ -24,6 +24,14 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/main.js"></script>
 
 </head>
 
@@ -46,7 +54,7 @@
                     <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="contact.html">Contact</a></li>
                 </ul>
                 <ul>
-                    <li class="probootstrap-animate" data-animate-effect="fadeInLeft" v-for="(item,index) in menulist" :key="item.id"><a :href="item.menuUrl">{{item.menuName}}</a></li>
+                    <li class="probootstrap-animate fadeInLeft probootstrap-animated" data-animate-effect="fadeInLeft" v-for="(item,index) in menulist" :key="item.id" :class="index===activehtml?isactive:''"><a :href="item.menuUrl" @click="putactive(index)">{{item.menuName}}</a></li>
                 </ul>
             </nav>
             <footer class="probootstrap-aside-footer probootstrap-animate" data-animate-effect="fadeInLeft">
@@ -84,7 +92,14 @@
         const vm = new Vue({
             el: "#app",
             data: {
-                menulist: ''
+                menulist: '',
+                isactive: 'active',
+                activehtml: 0
+            },
+            methods: {
+                putactive(index) {
+                    this.activehtml = index
+                }
             },
             created() {
                 var _this = this
@@ -100,15 +115,6 @@
             },
         })
     </script>
-
-    <script src="js/jquery-3.2.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/main.js"></script>
 </body>
 
 </html>
